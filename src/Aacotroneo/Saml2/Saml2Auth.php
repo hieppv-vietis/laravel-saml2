@@ -39,8 +39,8 @@ class Saml2Auth
         if (empty($idpName)) {
             throw new \InvalidArgumentException("IDP name required.");
         }
-
-        $config = config('saml2.'.$idpName.'_idp_settings');
+        echo "1"; 
+        $config = Saml2::where('deleted', false)->get();
 
         if (is_null($config)) {
             throw new \InvalidArgumentException('"' . $idpName . '" is not a valid IdP.');
